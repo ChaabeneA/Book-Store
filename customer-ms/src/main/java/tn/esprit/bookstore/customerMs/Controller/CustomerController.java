@@ -2,6 +2,7 @@ package tn.esprit.bookstore.customerMs.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.bookstore.customerMs.Entity.Customer;
 import tn.esprit.bookstore.customerMs.Models.Order;
@@ -63,5 +64,15 @@ public class CustomerController {
     {
         return customerService.addOrder(id,order);
     }
+    @GetMapping("/{id}/validate")
+    public ResponseEntity<Boolean> validateCustomer(@PathVariable Long id) {
+        boolean isValid = customerService.validateCustomer(id);
+        return ResponseEntity.ok(isValid);
+    }
+    @GetMapping("email/{email}")
+    public Customer findCustomerByEmail(@PathVariable String email){
+        return customerService.findCustomerByEmail(email);
+    }
+
 
 }

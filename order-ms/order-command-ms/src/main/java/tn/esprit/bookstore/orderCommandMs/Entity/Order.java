@@ -1,9 +1,7 @@
 package tn.esprit.bookstore.orderCommandMs.Entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 import tn.esprit.bookstore.orderCommandMs.Models.Customer;
 
 import java.time.LocalDateTime;
@@ -13,10 +11,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "orders")
+@Entity
+@Table(name = "book_orders")
 public class Order {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String price;
     private String address;
     private String customerId;

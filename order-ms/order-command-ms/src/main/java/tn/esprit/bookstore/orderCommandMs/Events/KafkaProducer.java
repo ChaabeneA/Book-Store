@@ -16,6 +16,11 @@ public class KafkaProducer {
     private String topic = "order-event-topic";
 
     public void produceEvent(Event orderEvent) {
+        log.info("///////////////////{}///////////////////", orderEvent.orderDto());
+        if (orderEvent.orderDto() == null) {
+            log.error("Attempting to produce null OrderDto");
+            return;
+        }
         kafkaTemplate.send(this.topic, orderEvent.type().toString() , orderEvent);
     }
 

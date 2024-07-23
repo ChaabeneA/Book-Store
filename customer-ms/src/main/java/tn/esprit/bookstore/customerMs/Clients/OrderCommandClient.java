@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import tn.esprit.bookstore.customerMs.Models.Order;
 
-@FeignClient(name = "Order-Command-Microservice")
+@FeignClient(name = "order-command-ms")
 public interface OrderCommandClient {
     @PostMapping("orders/commands")
     Order AddOrder(@RequestBody Order order);

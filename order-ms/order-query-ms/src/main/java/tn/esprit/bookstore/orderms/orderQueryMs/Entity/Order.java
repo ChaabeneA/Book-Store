@@ -3,6 +3,7 @@ package tn.esprit.bookstore.orderms.orderQueryMs.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 import tn.esprit.bookstore.orderms.orderQueryMs.Models.Customer;
 
 import java.time.LocalDateTime;
@@ -12,11 +13,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
+@Document(collection = "book_orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String id;
     private String price;
     private String address;
     private String customerId;

@@ -10,7 +10,7 @@ public interface OrderCommandService {
 
     OrderDto add(OrderDto orderDto);
 
-    OrderDto update(String idOrder, Map<Object,Object> fields);
+    OrderDto update(Long idOrder, Map<Object,Object> fields,String customerId);
 
-    boolean delete(String idOrder);
+    boolean delete(Long idOrder);
 }

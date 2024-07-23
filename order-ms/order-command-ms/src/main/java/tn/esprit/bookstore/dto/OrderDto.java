@@ -9,7 +9,7 @@ import tn.esprit.bookstore.orderCommandMs.Models.Customer;
 
 import java.time.LocalDateTime;
 
-public record OrderDto(String id, String price, String quantity, String address ,String customerId ,Customer customer,LocalDateTime createdAt, LocalDateTime updatedAt) {
+public record OrderDto(Long id, String price, String quantity, String address ,String customerId ,Customer customer,LocalDateTime createdAt, LocalDateTime updatedAt) {
     public static Order mapToOrder(OrderDto orderDto) {
         return new Order(orderDto.id(), orderDto.price(),orderDto.address(), orderDto.customerId(),orderDto.customer(), orderDto.quantity(), orderDto.createdAt(), orderDto.updatedAt());
     }

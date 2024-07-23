@@ -15,5 +15,7 @@ public interface CustomerService {
     Customer updateCustomer(Customer customer);
     void deleteCustomer(Long id);
     Order addOrder(Long id, Order order);
-
+    Boolean validateCustomer(Long customerId);
+    Customer findCustomerByEmail(String email);
+    List<Order> getOrdersByCustomerId(Long customerId);
 }

@@ -1,4 +1,4 @@
-package tn.esprit.bookstore.orderms.Exceptions;
+package tn.esprit.bookstore.orderms.orderQueryMs.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

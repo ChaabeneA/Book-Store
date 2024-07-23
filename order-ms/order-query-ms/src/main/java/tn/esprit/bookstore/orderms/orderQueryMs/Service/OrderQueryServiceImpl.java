@@ -14,6 +14,7 @@ import tn.esprit.bookstore.orderms.orderQueryMs.Repository.OrderRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -34,7 +35,7 @@ public class OrderQueryServiceImpl implements OrderQueryService{
     }
 
     @Override
-    public boolean delete(long idOrder) {
+    public boolean delete(String idOrder) {
         orderRepository.deleteById(idOrder);
         return orderRepository.existsById(idOrder);
     }
@@ -45,11 +46,19 @@ public class OrderQueryServiceImpl implements OrderQueryService{
     }
 
     @Override
-    public OrderDto getOrder(long id) {
+    public OrderDto getOrder(String id) {
         Order order=  orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("order not found"));
         return OrderDto.mapToOrderDto(order);
     }
+    @Override
+    public List<OrderDto> getOrdersByCustomerId(String id) {
+        List<Order> orders = orderRepository.findAllByCustomerId(id);
+        return orders.stream()
+                .map(OrderDto::mapToOrderDto)
+                .collect(Collectors.toList());
+    }
+
 
    /* @Override
     public OrderDto getOrderByName(String name) {

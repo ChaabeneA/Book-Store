@@ -47,9 +47,14 @@ public class OrderQueryController {
     }
 
     @GetMapping("{id}")
-    public OrderDto getOrder(@PathVariable long id){
+    public OrderDto getOrder(@PathVariable String id){
         return orderQueryService.getOrder(id);
     }
+    @GetMapping("customer/{id}")
+    List<OrderDto> allOrdersByCustomerId(@PathVariable String id){
+        return orderQueryService.getOrdersByCustomerId(id);
+    }
+
 
    /* @GetMapping("name/{name}")
     public OrderDto getOrder(@PathVariable String name){

@@ -18,7 +18,7 @@ public class OrderEventHandler {
         orderQueryService.update(OrderDto.mapToOrder(orderDto));
     }
 
-    public void handleOrderDeletedEvent(long idOrder) {
+    public void handleOrderDeletedEvent(String idOrder) {
         orderQueryService.delete(idOrder);
     }
 }

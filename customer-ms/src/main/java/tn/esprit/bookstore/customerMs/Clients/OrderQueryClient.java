@@ -7,7 +7,7 @@ import tn.esprit.bookstore.customerMs.Models.Order;
 
 import java.util.List;
 
-@FeignClient(name = "Order-Query-Microservice")
+@FeignClient(name = "order-query-ms")
 public interface OrderQueryClient {
     @GetMapping("orders/queries/customer/{id}")
     List<Order> allOrdersByCustomerId(@PathVariable String id);
