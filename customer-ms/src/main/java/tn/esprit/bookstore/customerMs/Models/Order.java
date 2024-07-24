@@ -3,6 +3,8 @@ package tn.esprit.bookstore.customerMs.Models;
 import lombok.*;
 import tn.esprit.bookstore.customerMs.Entity.Customer;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,4 +17,6 @@ public class Order {
     private Long customerId;
     private Customer customer;
     private String quantity;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

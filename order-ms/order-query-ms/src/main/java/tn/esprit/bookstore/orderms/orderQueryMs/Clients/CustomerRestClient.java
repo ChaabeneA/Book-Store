@@ -9,10 +9,10 @@ import tn.esprit.bookstore.orderms.orderQueryMs.Models.Customer;
 
 import java.util.List;
 
-@FeignClient(name = "Customer-Microservice")
+@FeignClient(name = "customer-ms")
 public interface CustomerRestClient {
     @GetMapping("customers/{id}")
-    @CircuitBreaker(name = "Customer-Microservice",fallbackMethod = "getDefaultCustomer")
+    @CircuitBreaker(name = "customer-ms",fallbackMethod = "getDefaultCustomer")
     Customer findCustomerById(@PathVariable String id);
 
     @GetMapping("customers/all")
